@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taski_to_do/core/router/app_router.dart';
-import 'package:taski_to_do/src/presentation/view/home_view.dart';
 
 import 'src/presentation/viewmodel/home_view_model.dart';
 
