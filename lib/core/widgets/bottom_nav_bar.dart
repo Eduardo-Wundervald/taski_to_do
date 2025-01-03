@@ -27,7 +27,7 @@ class MyBottomNavBar extends StatelessWidget {
           ),
           _buildNavItem(
             icon: Icons.add_circle_outline,
-            label: "Criar",
+            label: "Create",
             index: 1,
             currentIndex: currentIndex,
             onTap: onTabChange,

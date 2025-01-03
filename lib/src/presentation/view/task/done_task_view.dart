@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DeleteTask extends StatelessWidget {
-  const DeleteTask({super.key});
+class DoneTask extends StatelessWidget {
+  const DoneTask({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:taski_to_do/src/presentation/view/task/create_task_view.dart';
 
-import '../view/task/delete_task_view.dart';
+import '../view/task/done_task_view.dart';
 import '../view/task/search_task_view.dart';
 import '../view/task/todo_task_view.dart';
 
-class HomeViewModel extends ChangeNotifier {
+class BottomBarViewModel extends ChangeNotifier {
   int _currentIndex = 0;
   int get currentIndex => _currentIndex;
 
@@ -13,7 +13,7 @@ class HomeViewModel extends ChangeNotifier {
     const TodoTask(),
     const CreateTask(),
     const SearchTask(),
-    const DeleteTask(),
+    const DoneTask(),
   ];
 
   Widget get currentScreen => screens[_currentIndex];
