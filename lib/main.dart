@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taski_to_do/core/router/app_router.dart';
 
-import 'src/presentation/viewmodel/home_view_model.dart';
+import 'src/presentation/viewmodel/bottom_bar_view_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider(create: (_) => BottomBarViewModel()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

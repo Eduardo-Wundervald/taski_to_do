@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taski_to_do/src/presentation/viewmodel/home_view_model.dart';
+import 'package:taski_to_do/src/presentation/viewmodel/bottom_bar_view_model.dart';
 
 import '../../../core/widgets/bottom_nav_bar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class BottomBar extends StatelessWidget {
+  const BottomBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<HomeViewModel>();
+    final viewModel = context.watch<BottomBarViewModel>();
 
     return Scaffold(
       body: viewModel.currentScreen,

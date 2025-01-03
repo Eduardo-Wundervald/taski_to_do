@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
+import 'package:taski_to_do/src/presentation/view/bottom_bar_view.dart';
 import 'package:taski_to_do/src/presentation/view/task/create_task_view.dart';
-import 'package:taski_to_do/src/presentation/view/task/delete_task_view.dart';
-import 'package:taski_to_do/src/presentation/view/home_screen_view.dart';
+import 'package:taski_to_do/src/presentation/view/task/done_task_view.dart';
+
 import 'package:taski_to_do/src/presentation/view/task/todo_task_view.dart';
 
 class AppRouter {
@@ -11,7 +12,7 @@ class AppRouter {
       GoRoute(
         path: '/home',
         builder: (context, state) {
-          return const HomeScreen();
+          return const BottomBar();
         },
       ),
       GoRoute(
@@ -35,7 +36,7 @@ class AppRouter {
       GoRoute(
         path: '/delete',
         builder: (context, state) {
-          return const DeleteTask();
+          return const DoneTask();
         },
       ),
     ],
