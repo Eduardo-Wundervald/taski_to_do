@@ -12,42 +12,51 @@ class MyBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _buildNavItem(
-            icon: Icons.format_list_bulleted,
-            label: "Todo",
-            index: 0,
-            currentIndex: currentIndex,
-            onTap: onTabChange,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Divider(
+          height: 2,
+          color: Color.fromRGBO(245, 247, 249, 1),
+        ),
+        Container(
+          color: Colors.white,
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem(
+                icon: Icons.format_list_bulleted,
+                label: "Todo",
+                index: 0,
+                currentIndex: currentIndex,
+                onTap: onTabChange,
+              ),
+              _buildNavItem(
+                icon: Icons.add_circle_outline,
+                label: "Create",
+                index: 1,
+                currentIndex: currentIndex,
+                onTap: onTabChange,
+              ),
+              _buildNavItem(
+                icon: Icons.search,
+                label: "Search",
+                index: 2,
+                currentIndex: currentIndex,
+                onTap: onTabChange,
+              ),
+              _buildNavItem(
+                icon: Icons.check_circle_outline,
+                label: "Done",
+                index: 3,
+                currentIndex: currentIndex,
+                onTap: onTabChange,
+              ),
+            ],
           ),
-          _buildNavItem(
-            icon: Icons.add_circle_outline,
-            label: "Create",
-            index: 1,
-            currentIndex: currentIndex,
-            onTap: onTabChange,
-          ),
-          _buildNavItem(
-            icon: Icons.search,
-            label: "Search",
-            index: 2,
-            currentIndex: currentIndex,
-            onTap: onTabChange,
-          ),
-          _buildNavItem(
-            icon: Icons.check_circle_outline,
-            label: "Done",
-            index: 3,
-            currentIndex: currentIndex,
-            onTap: onTabChange,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
