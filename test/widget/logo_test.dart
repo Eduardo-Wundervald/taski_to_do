@@ -10,9 +10,11 @@ void main() {
           home: Logo(),
         ),
       );
-      // Verify the icon and text are rendered.
+      // Verify the icon and image are rendered.
       expect(find.byType(Icon), findsOneWidget);
-      expect(find.text("Taski"), findsOneWidget);
+      expect(find.byWidgetPredicate((widget) {
+        return widget is Image && widget.image is AssetImage;
+      }), findsOneWidget);
     });
   });
 }

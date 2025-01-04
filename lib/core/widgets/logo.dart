@@ -20,13 +20,9 @@ class Logo extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 8),
-        const Text(
-          "Taski",
-          style: TextStyle(
-            color: Color.fromRGBO(63, 61, 86, 1),
-            fontFamily: "Urbanist",
-            fontSize: 18,
-          ),
+        Image.asset(
+          'assets/images/Taski.png',
+          color: const Color.fromRGBO(63, 61, 86, 1),
         ),
       ],
     );
