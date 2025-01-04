@@ -20,6 +20,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            elevation: 0,
+          ),
+        ),
       ),
     );
   }
