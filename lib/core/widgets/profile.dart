@@ -13,6 +13,7 @@ class Profile extends StatelessWidget {
           style: const TextStyle(
             color: Color.fromRGBO(63, 61, 86, 1),
             fontFamily: "Urbanist",
+            fontWeight: FontWeight.w600,
             fontSize: 18,
           ),
         ),
