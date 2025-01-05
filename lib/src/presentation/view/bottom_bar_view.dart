@@ -15,7 +15,9 @@ class BottomBar extends StatelessWidget {
       body: viewModel.currentScreen,
       bottomNavigationBar: MyBottomNavBar(
         currentIndex: viewModel.currentIndex,
-        onTabChange: viewModel.onTabChange,
+        onTabChange: (index) {
+          viewModel.onTabChange(context, index);
+        },
       ),
     );
   }
