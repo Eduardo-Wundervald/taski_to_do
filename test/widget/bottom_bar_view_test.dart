@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:taski_to_do/main.dart';
-import 'package:taski_to_do/src/presentation/view/task/create_task_view.dart';
+import 'package:taski_to_do/core/widgets/create_task.dart';
 import 'package:taski_to_do/src/presentation/view/task/done_task_view.dart';
 import 'package:taski_to_do/src/presentation/view/task/search_task_view.dart';
 import 'package:taski_to_do/src/presentation/view/task/todo_task_view.dart';
