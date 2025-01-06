@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../src/presentation/viewmodel/create_task_view_model.dart';
 
 class CreateTask extends StatelessWidget {
-  const CreateTask({super.key});
+  CreateTask({super.key});
+
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +32,7 @@ class CreateTask extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextField(
+                  controller: titleController,
                   decoration: InputDecoration(
                     labelText: "What’s in your mind?",
                     labelStyle: const TextStyle(
@@ -46,6 +53,7 @@ class CreateTask extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 TextField(
+                  controller: descriptionController,
                   decoration: InputDecoration(
                     labelText: "Add a note...",
                     labelStyle: const TextStyle(
@@ -79,6 +87,11 @@ class CreateTask extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      final createTaskViewModel =
+                          Provider.of<CreateTaskViewModel>(context,
+                              listen: false);
+                      createTaskViewModel.createTask(titleController.text,
+                          descriptionController.text, context);
                       Navigator.pop(context);
                     },
                     child: const Text(
