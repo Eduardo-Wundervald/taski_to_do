@@ -120,10 +120,11 @@ class TodoTask extends StatelessWidget {
                           //modal
                           showModalBottomSheet(
                             context: context,
+                            barrierColor: Colors.black.withOpacity(0.5),
                             isScrollControlled: true,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(16),
+                                top: Radius.circular(24),
                               ),
                             ),
                             builder: (BuildContext context) {
