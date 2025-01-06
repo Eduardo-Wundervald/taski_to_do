@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:taski_to_do/core/router/app_router.dart';
+import 'package:taski_to_do/src/data/model/task.dart';
 
 import 'src/presentation/viewmodel/bottom_bar_view_model.dart';
+import 'src/presentation/viewmodel/create_task_view_model.dart';
 import 'src/presentation/viewmodel/todo_task_view_model.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskAdapter());
+  final taskBox = await Hive.openBox<Task>('taskBox');
+
+  runApp(MyApp(taskBox: taskBox));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Box<Task> taskBox;
+  const MyApp({super.key, required this.taskBox});
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => BottomBarViewModel()),
-        ChangeNotifierProvider(create: (_) => TodoTaskViewModel()),
+        ChangeNotifierProvider(
+            create: (_) => TodoTaskViewModel(taskBox: taskBox)),
+        ChangeNotifierProvider(
+            create: (_) => CreateTaskViewModel(taskBox: taskBox)),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
