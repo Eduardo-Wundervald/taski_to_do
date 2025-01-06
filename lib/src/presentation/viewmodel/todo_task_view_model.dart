@@ -1,23 +1,31 @@
 import 'package:flutter/widgets.dart';
+import 'package:hive/hive.dart';
 
 import '../../data/model/task.dart';
 
 class TodoTaskViewModel extends ChangeNotifier {
-  final List<Task> _tasks = [];
+  final Box<Task> taskBox;
+
+  TodoTaskViewModel({required this.taskBox});
 
   // get tasks
-  List<Task> get task => List.unmodifiable(_tasks);
+  List<Task> get task => taskBox.values.toList();
 
   // number of tasks
-  int get taskCount => _tasks.length;
+  int get taskCount => taskBox.length;
 
   // set task as done
   void toogleTaskDone(int index) {
-    _tasks[index] = Task(
-      title: _tasks[index].title,
-      description: _tasks[index].description,
-      isDone: !_tasks[index].isDone,
-    );
+    final task = taskBox.getAt(index);
+    if (task != null) {
+      task.isDone = !task.isDone;
+      task.save();
+      notifyListeners();
+    }
+    notifyListeners();
+  }
+
+  void notifyTasksUpdated() {
     notifyListeners();
   }
 }
