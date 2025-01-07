@@ -69,7 +69,11 @@ class _ViewTaskState extends State<ViewTask> {
                           });
                         },
                   icon: Icon(
-                    widget.isDone ? Icons.delete : Icons.more_horiz,
+                    widget.isDone
+                        ? Icons.delete
+                        : isExpanded
+                            ? null
+                            : Icons.more_horiz,
                     color: widget.isDone
                         ? Colors.red
                         : const Color.fromRGBO(141, 156, 184, 1),
