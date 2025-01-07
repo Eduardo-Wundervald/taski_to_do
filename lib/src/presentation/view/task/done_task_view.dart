@@ -43,7 +43,7 @@ class DoneTask extends StatelessWidget {
 
                 // Clear All
                 TextButton(
-                  onPressed: () => doneTaskViewModel.deleteAllTaskDone(),
+                  onPressed: () => doneTaskViewModel.deleteAllTasksDone(),
                   child: const Text(
                     "Delete All",
                     style: TextStyle(

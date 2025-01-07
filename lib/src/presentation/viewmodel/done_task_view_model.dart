@@ -34,7 +34,7 @@ class DoneTaskViewModel extends ChangeNotifier {
   }
 
   // Deletar todas as tarefas concluídas
-  void deleteAllTaskDone() {
+  void deleteAllTasksDone() {
     if (completedTasks.isEmpty) return;
     taskBox.deleteAll(completedTasks.keys);
     notifyListeners();
