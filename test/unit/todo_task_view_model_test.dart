@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_test/hive_test.dart';
@@ -15,7 +13,9 @@ void main() {
     setUp(() async {
       //initialize hive test
       await setUpTestHive();
-      Hive.registerAdapter(TaskAdapter());
+      if (!Hive.isAdapterRegistered(0)) {
+        Hive.registerAdapter(TaskAdapter());
+      }
       taskBox = await Hive.openBox<Task>("task");
 
       await taskBox.add(
