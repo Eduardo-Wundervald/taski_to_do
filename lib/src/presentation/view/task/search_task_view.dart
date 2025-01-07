@@ -63,14 +63,18 @@ class SearchTask extends StatelessWidget {
           ),
           Expanded(
             child: searchViewModel.filteredTasks.isEmpty
-                ? const Center(
-                    child: Text(
-                      'No task found',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20,
+                ? const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(image: AssetImage('assets/images/no_result.png')),
+                      Text(
+                        'No result found.',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                        ),
                       ),
-                    ),
+                    ],
                   )
                 : Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
