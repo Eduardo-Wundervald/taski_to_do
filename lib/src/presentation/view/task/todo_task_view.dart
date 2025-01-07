@@ -66,7 +66,7 @@ class TodoTask extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             //empty task
-            taskViewModel.task.isEmpty
+            taskViewModel.uncompletedTasks.isEmpty
                 ? const Text(
                     "You have no task listed.",
                     style: TextStyle(
@@ -77,7 +77,7 @@ class TodoTask extends StatelessWidget {
                     ),
                   )
                 : Text(
-                    "You’ve got ${taskViewModel.taskCount} tasks to do.",
+                    "You’ve got ${taskViewModel.uncompletedTasksCount} tasks to do.",
                     style: const TextStyle(
                       color: Color.fromRGBO(141, 156, 184, 1),
                       fontFamily: "Urbanist",
@@ -85,7 +85,7 @@ class TodoTask extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-            const SizedBox(height: 24),
+
             Container(
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(245, 247, 249, 1),
@@ -93,7 +93,7 @@ class TodoTask extends StatelessWidget {
               ),
             ),
             // Task List empty
-            if (taskViewModel.task.isEmpty)
+            if (taskViewModel.uncompletedTasks.isEmpty)
               Expanded(
                 child: Center(
                   child: Column(
@@ -128,7 +128,7 @@ class TodoTask extends StatelessWidget {
                               ),
                             ),
                             builder: (BuildContext context) {
-                              return const CreateTask();
+                              return CreateTask();
                             },
                           );
                         },
@@ -166,14 +166,17 @@ class TodoTask extends StatelessWidget {
               ),
             Expanded(
               child: ListView.builder(
-                itemCount: taskViewModel.task.length,
+                itemCount: taskViewModel.uncompletedTasks.length,
                 itemBuilder: (context, index) {
+                  final taskKey =
+                      taskViewModel.uncompletedTasks.keys.elementAt(index);
+                  final task = taskViewModel.uncompletedTasks[taskKey]!;
                   return ViewTask(
-                    title: taskViewModel.task[index].title,
-                    description: taskViewModel.task[index].description,
-                    isDone: taskViewModel.task[index].isDone,
+                    title: task.title,
+                    description: task.description,
+                    isDone: task.isDone,
                     onTaskDone: (value) {
-                      taskViewModel.toogleTaskDone(index);
+                      taskViewModel.toggleTaskDone(taskKey);
                     },
                   );
                 },

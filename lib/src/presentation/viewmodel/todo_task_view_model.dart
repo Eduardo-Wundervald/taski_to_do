@@ -8,21 +8,30 @@ class TodoTaskViewModel extends ChangeNotifier {
 
   TodoTaskViewModel({required this.taskBox});
 
-  // get tasks
-  List<Task> get task => taskBox.values.toList();
+  // get uncompleted tasks
+  Map<int, Task> get uncompletedTasks {
+    return Map<int, Task>.fromEntries(
+      taskBox.toMap().entries.where((entry) => !entry.value.isDone).map(
+            (entry) => MapEntry(entry.key as int, entry.value),
+          ),
+    );
+  }
 
-  // number of tasks
-  int get taskCount => taskBox.length;
+  // number of tasks uncompleted
+  int get uncompletedTasksCount => uncompletedTasks.length;
 
   // set task as done
-  void toogleTaskDone(int index) {
-    final task = taskBox.getAt(index);
+  void toggleTaskDone(int key) {
+    final task = taskBox.get(key);
     if (task != null) {
-      task.isDone = !task.isDone;
-      task.save();
+      final updatedTask = Task(
+        title: task.title,
+        description: task.description,
+        isDone: !task.isDone,
+      );
+      taskBox.put(key, updatedTask);
       notifyListeners();
     }
-    notifyListeners();
   }
 
   void notifyTasksUpdated() {
