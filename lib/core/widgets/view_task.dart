@@ -5,13 +5,16 @@ class ViewTask extends StatefulWidget {
   final String description;
   final bool isDone;
   final ValueChanged<bool?> onTaskDone;
+  final VoidCallback? onDelete;
 
-  const ViewTask(
-      {super.key,
-      required this.title,
-      required this.description,
-      required this.isDone,
-      required this.onTaskDone});
+  const ViewTask({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.isDone,
+    required this.onTaskDone,
+    this.onDelete,
+  });
 
   @override
   State<ViewTask> createState() => _ViewTaskState();
@@ -45,8 +48,10 @@ class _ViewTaskState extends State<ViewTask> {
                     ),
                     title: Text(
                       widget.title,
-                      style: const TextStyle(
-                        color: Color.fromRGBO(63, 61, 86, 1),
+                      style: TextStyle(
+                        color: widget.isDone
+                            ? const Color.fromRGBO(141, 156, 184, 1)
+                            : const Color.fromRGBO(63, 61, 86, 1),
                         fontFamily: "Urbanist",
                         fontWeight: FontWeight.w700,
                         fontSize: 16,
@@ -56,14 +61,18 @@ class _ViewTaskState extends State<ViewTask> {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isExpanded = !isExpanded;
-                    });
-                  },
+                  onPressed: widget.isDone
+                      ? widget.onDelete
+                      : () {
+                          setState(() {
+                            isExpanded = !isExpanded;
+                          });
+                        },
                   icon: Icon(
-                    isExpanded ? null : Icons.more_horiz,
-                    color: const Color.fromRGBO(141, 156, 184, 1),
+                    widget.isDone ? Icons.delete : Icons.more_horiz,
+                    color: widget.isDone
+                        ? Colors.red
+                        : const Color.fromRGBO(141, 156, 184, 1),
                   ),
                 ),
               ],
