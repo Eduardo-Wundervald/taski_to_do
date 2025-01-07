@@ -24,7 +24,7 @@ class AppRouter {
       GoRoute(
         path: '/create',
         builder: (context, state) {
-          return const CreateTask();
+          return CreateTask();
         },
       ),
       GoRoute(
