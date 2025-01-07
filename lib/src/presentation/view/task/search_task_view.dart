@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/widgets/logo.dart';
 import '../../../../core/widgets/profile.dart';
+import '../../../../core/widgets/view_task.dart';
+import '../../viewmodel/search_task_view_model.dart';
 
 class SearchTask extends StatelessWidget {
   SearchTask({super.key});
@@ -11,6 +14,7 @@ class SearchTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final searchViewModel = context.watch<SearchTaskViewModel>();
     return Scaffold(
       appBar: AppBar(
         title: const Padding(
@@ -31,7 +35,7 @@ class SearchTask extends StatelessWidget {
             child: TextField(
               controller: _searchController,
               onChanged: (value) {
-                print(value);
+                searchViewModel.searchTask(value);
               },
               decoration: InputDecoration(
                 fillColor: const Color.fromRGBO(245, 247, 249, 1),
@@ -56,6 +60,38 @@ class SearchTask extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          Expanded(
+            child: searchViewModel.filteredTasks.isEmpty
+                ? const Center(
+                    child: Text(
+                      'No task found',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 20,
+                      ),
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: ListView.builder(
+                      itemCount: searchViewModel.filteredTasks.length,
+                      itemBuilder: (context, index) {
+                        final taskKey = searchViewModel.taskBox.keys
+                            .elementAt(index) as int;
+                        final task = searchViewModel.filteredTasks[index];
+                        return ViewTask(
+                          title: task.title,
+                          description: task.description,
+                          isDone: task.isDone,
+                          onTaskDone: (value) {
+                            searchViewModel.changeTaskState(task);
+                          },
+                          onDelete: () => searchViewModel.deleteTask(taskKey),
+                        );
+                      },
+                    ),
+                  ),
           ),
         ],
       ),
