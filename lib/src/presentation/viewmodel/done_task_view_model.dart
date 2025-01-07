@@ -20,7 +20,7 @@ class DoneTaskViewModel extends ChangeNotifier {
   int get completedTasksCount => completedTasks.length;
 
   // Alternar status de conclusão
-  void toggleTaskDone(int key) {
+  void toggleTaskUndone(int key) {
     final task = taskBox.get(key);
     if (task != null) {
       final updatedTask = Task(

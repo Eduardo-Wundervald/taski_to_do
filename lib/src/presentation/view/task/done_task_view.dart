@@ -83,7 +83,7 @@ class DoneTask extends StatelessWidget {
                           description: task.description,
                           isDone: task.isDone,
                           onTaskDone: (value) {
-                            doneTaskViewModel.toggleTaskDone(taskKey);
+                            doneTaskViewModel.toggleTaskUndone(taskKey);
                           },
                           onDelete: () {
                             doneTaskViewModel.deleteTask(taskKey);
