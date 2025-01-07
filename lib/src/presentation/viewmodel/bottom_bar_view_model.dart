@@ -11,8 +11,8 @@ class BottomBarViewModel extends ChangeNotifier {
 
   final List<Widget> screens = [
     const TodoTask(),
-    const CreateTask(),
-    const SearchTask(),
+    CreateTask(),
+    SearchTask(),
     const DoneTask(),
   ];
 
@@ -30,7 +30,7 @@ class BottomBarViewModel extends ChangeNotifier {
           ),
         ),
         builder: (BuildContext context) {
-          return const CreateTask();
+          return CreateTask();
         },
       );
     } else {
