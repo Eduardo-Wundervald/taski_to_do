@@ -75,18 +75,18 @@ class DoneTask extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: doneTaskViewModel.completedTasks.length,
                       itemBuilder: (context, index) {
-                        final undoneTask = doneTaskViewModel.completedTasks;
+                        final taskKey = doneTaskViewModel.completedTasks.keys
+                            .elementAt(index);
+                        final task = doneTaskViewModel.completedTasks[taskKey]!;
                         return ViewTask(
-                          title: undoneTask[index].title,
-                          description: undoneTask[index].description,
-                          isDone: undoneTask[index].isDone,
+                          title: task.title,
+                          description: task.description,
+                          isDone: task.isDone,
                           onTaskDone: (value) {
-                            // doneTaskViewModel.updateTask(
-                            //   undoneTask[index].copyWith(isDone: value),
-                            // );
+                            doneTaskViewModel.toggleTaskDone(taskKey);
                           },
                           onDelete: () {
-                            doneTaskViewModel.deleteTask(index);
+                            doneTaskViewModel.deleteTask(taskKey);
                           },
                         );
                       },

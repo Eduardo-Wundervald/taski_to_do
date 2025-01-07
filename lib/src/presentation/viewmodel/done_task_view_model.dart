@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
 import '../../data/model/task.dart';
 
@@ -8,33 +8,41 @@ class DoneTaskViewModel extends ChangeNotifier {
   DoneTaskViewModel({required this.taskBox});
 
   // Lista de tarefas concluídas
-  List<Task> get completedTasks =>
-      taskBox.values.where((task) => task.isDone).toList();
+  Map<int, Task> get completedTasks {
+    return Map<int, Task>.fromEntries(
+      taskBox.toMap().entries.where((entry) => entry.value.isDone).map(
+            (entry) => MapEntry(entry.key as int, entry.value),
+          ),
+    );
+  }
 
   // Número de tarefas concluídas
-  int get completedTaskCount => completedTasks.length;
+  int get completedTasksCount => completedTasks.length;
 
   // Alternar status de conclusão
-  void toggleTaskDone(int index) {
-    final task = taskBox.getAt(index);
+  void toggleTaskDone(int key) {
+    final task = taskBox.get(key);
     if (task != null) {
-      task.isDone = !task.isDone;
-      task.save();
+      final updatedTask = Task(
+        title: task.title,
+        description: task.description,
+        isDone: !task.isDone,
+      );
+      taskBox.put(key, updatedTask);
       notifyListeners();
     }
   }
 
-  //delete all done
+  // Deletar todas as tarefas concluídas
   void deleteAllTaskDone() {
-    if (completedTaskCount == 0) return;
-    taskBox.deleteAll(
-        taskBox.keys.where((key) => taskBox.get(key)!.isDone).toList());
+    if (completedTasks.isEmpty) return;
+    taskBox.deleteAll(completedTasks.keys);
     notifyListeners();
   }
 
-  //delete task
-  void deleteTask(int index) {
-    taskBox.deleteAt(index);
+  // Deletar tarefa específica
+  void deleteTask(int key) {
+    taskBox.delete(key);
     notifyListeners();
   }
 }
