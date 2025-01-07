@@ -6,6 +6,7 @@ import 'package:taski_to_do/src/data/model/task.dart';
 
 import 'src/presentation/viewmodel/bottom_bar_view_model.dart';
 import 'src/presentation/viewmodel/create_task_view_model.dart';
+import 'src/presentation/viewmodel/done_task_view_model.dart';
 import 'src/presentation/viewmodel/todo_task_view_model.dart';
 
 void main() async {
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
             create: (_) => TodoTaskViewModel(taskBox: taskBox)),
         ChangeNotifierProvider(
             create: (_) => CreateTaskViewModel(taskBox: taskBox)),
+        ChangeNotifierProvider(
+            create: (_) => DoneTaskViewModel(taskBox: taskBox)),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
