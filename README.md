@@ -1,16 +1,103 @@
-# taski_to_do
+# Aplicativo Taski TO-DO
 
-A new Flutter project.
+Este é um aplicativo de tarefas simples desenvolvido usando Flutter. Ele permite que os usuários gerenciem suas tarefas com funcionalidades básicas de CRUD (Criar, Ler, Atualizar, Excluir) e Buscar.
 
-## Getting Started
+## Funcionalidades
 
-This project is a starting point for a Flutter application.
+- Adicionar novas tarefas
+- Marcar tarefas como concluídas
+- Excluir tarefas
+- Pesquisar tarefas pelo título ou descrição
+- Armazenamento local das tarefas utilizando **Hive**
+- Navegação simples e eficiente usando **GoRouter**
+- Interface intuitiva baseada na arquitetura **MVVM**
+- Implementação de testes de widget e lógica com **Flutter Test**
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologias Utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter**: Framework de desenvolvimento multiplataforma
+- **Dart**: Linguagem de programação utilizada pelo Flutter
+- **Hive**: Banco de dados NoSQL rápido e leve para armazenamento local
+- **Provider**: Gerenciamento de estado reativo para a aplicação
+- **GoRouter**: Gerenciador de rotas simples e flexível
+- **Flutter Test**: Ferramenta para testes de widget e lógica
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Arquitetura Utilizada
+
+O aplicativo segue o padrão **MVVM (Model-View-ViewModel)** para manter o código modular, reutilizável e testável:
+
+1. **Model**:
+   - Representa os dados e a lógica do domínio.
+   - No caso deste aplicativo, a entidade principal é a `Task`, gerenciada com o banco de dados **Hive**.
+
+2. **ViewModel**:
+   - Lida com a lógica de negócios e a interação entre os dados (Model) e a interface (View).
+   - Gerenciado com **Provider** para estado reativo.
+   - Exemplo: `TodoTaskViewModel`, `SearchTaskViewModel`.
+
+3. **View**:
+   - Camada de apresentação que exibe os dados para o usuário e captura as interações.
+   - Implementada com widgets do Flutter, incluindo telas como `TodoTask`, `DoneTask`, `SearchTask`.
+
+## Testes
+
+O projeto inclui testes para garantir a funcionalidade e estabilidade do código:
+
+- **Testes de Widgets**:
+  - Verificação de transições entre páginas.
+  - Garantia de que os widgets principais estão sendo exibidos corretamente.
+
+- **Testes de Lógica**:
+  - Validação de funcionalidades como busca e gerenciamento de tarefas.
+
+Os testes foram desenvolvidos utilizando o **Flutter Test**.
+
+## Como Rodar o Aplicativo
+
+### Pré-requisitos
+
+Certifique-se de ter o seguinte instalado na sua máquina:
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+- [Dart SDK](https://dart.dev/get-dart)
+- Editor de código como [Visual Studio Code](https://code.visualstudio.com/) ou [Android Studio](https://developer.android.com/studio)
+
+### Passos para Configuração
+
+1. Clone este repositório:
+   ```bash
+   git clone git@github.com:LucasPetruci/taski_to_do.git
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd taski_to_do
+3. Instale as dependências:
+   ```bash
+   flutter pub get
+4. Inicie o emulador: <br>
+   No desenvolvimento foi utilzado a Pixel 3 API 30
+   
+6. Execute o aplicativo:
+   ```bash
+    flutter run
+   
+
+### Executando os testes
+
+  Para rodar os testes, use o comando:
+   ```bash
+     flutter test
+   ```
+ Demo Online
+
+Você pode acessar a versão online do aplicativo através deste link: [TODO App Online](https://virtual-cell-phone.vercel.app/app/Taski)
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a827cc3c-df04-4413-9923-c1308ef8aa15" alt="1" width="300"/>
+  <img src="https://github.com/user-attachments/assets/7cce9f8f-9bce-482e-8c30-ac270e711b55" alt="2" width="300"/>
+  <img src="https://github.com/user-attachments/assets/d09d8610-8fa0-4e30-808d-3ae0fc4b3274" alt="3" width="300"/>
+  <img src="https://github.com/user-attachments/assets/f8404095-be6c-4b6c-a5e0-bcd0cfa032f6" alt="4" width="300"/>
+  <img src="https://github.com/user-attachments/assets/a0b3d635-e606-42ce-9c81-78c8a068735d" alt="5" width="300"/>
+  <img src="https://github.com/user-attachments/assets/26736dc9-cb49-4eee-a94d-7c76d610ab51" alt="6" width="300"/>
+  <img src="https://github.com/user-attachments/assets/336d5887-d23f-41de-b354-d6e4c8f900ae" alt="7" width="300"/>
+</p>
