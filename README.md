@@ -1,6 +1,6 @@
 # Aplicativo Taski TO-DO
 
-Este é um aplicativo de tarefas simples desenvolvido usando Flutter. Ele permite que os usuários gerenciem suas tarefas com funcionalidades básicas de CRUD (Criar, Ler, Atualizar, Excluir) e Buscar.
+Este é um aplicativo de tarefas simples desenvolvido usando Flutter, com base no design do [Figma](https://www.figma.com/design/RPnpIHgvIKobI7LieqNCcw/Taski-To-Do?node-id=12-387&t=BYUaJu2rE4Ha5Unx-0). Ele permite que os usuários gerenciem suas tarefas com funcionalidades básicas de CRUD (Criar, Ler, Atualizar, Excluir) e Buscar.
 
 ## Funcionalidades
 
@@ -11,16 +11,22 @@ Este é um aplicativo de tarefas simples desenvolvido usando Flutter. Ele permit
 - Armazenamento local das tarefas utilizando **Hive**
 - Navegação simples e eficiente usando **GoRouter**
 - Interface intuitiva baseada na arquitetura **MVVM**
-- Implementação de testes de widget e lógica com **Flutter Test**
+- Implementação de testes de widget e unitário com **Flutter Test**
 
 ## Tecnologias Utilizadas
 
-- **Flutter**: Framework de desenvolvimento multiplataforma
-- **Dart**: Linguagem de programação utilizada pelo Flutter
-- **Hive**: Banco de dados NoSQL rápido e leve para armazenamento local
-- **Provider**: Gerenciamento de estado reativo para a aplicação
-- **GoRouter**: Gerenciador de rotas simples e flexível
-- **Flutter Test**: Ferramenta para testes de widget e lógica
+- **Flutter**: Framework de desenvolvimento multiplataforma para criar aplicações nativas com uma única base de código.
+- **Dart**: Linguagem de programação utilizada pelo Flutter, com foco em desempenho e produtividade.
+- **Hive**: Banco de dados NoSQL rápido e eficiente para armazenamento local.
+  - **Hive Flutter**: Extensão do Hive para integração fácil com Flutter.
+  - **Hive Generator**: Ferramenta para geração de adaptadores de tipos para o Hive.
+  - **Hive Test**: Biblioteca para facilitar os testes envolvendo Hive, permitindo simulações sem a necessidade de armazenamento físico.
+- **Provider**: Gerenciamento de estado reativo e simplificado para Flutter.
+- **GoRouter**: Solução flexível para gerenciamento de rotas com suporte a navegação declarativa.
+- **Flutter Test**: Ferramenta para realizar testes de unidade e de widgets na aplicação.
+- **Mockito**: Biblioteca para criação de mocks em testes unitários.
+- **Build Runner**: Ferramenta para gerar código automaticamente, utilizada com o Hive Generator.
+
 
 ## Arquitetura Utilizada
 
@@ -93,11 +99,11 @@ Você pode acessar a versão online do aplicativo através deste link: [TODO App
 
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a827cc3c-df04-4413-9923-c1308ef8aa15" alt="1" width="300"/>
-  <img src="https://github.com/user-attachments/assets/7cce9f8f-9bce-482e-8c30-ac270e711b55" alt="2" width="300"/>
-  <img src="https://github.com/user-attachments/assets/d09d8610-8fa0-4e30-808d-3ae0fc4b3274" alt="3" width="300"/>
-  <img src="https://github.com/user-attachments/assets/f8404095-be6c-4b6c-a5e0-bcd0cfa032f6" alt="4" width="300"/>
-  <img src="https://github.com/user-attachments/assets/a0b3d635-e606-42ce-9c81-78c8a068735d" alt="5" width="300"/>
-  <img src="https://github.com/user-attachments/assets/26736dc9-cb49-4eee-a94d-7c76d610ab51" alt="6" width="300"/>
-  <img src="https://github.com/user-attachments/assets/336d5887-d23f-41de-b354-d6e4c8f900ae" alt="7" width="300"/>
+  <img src="https://github.com/user-attachments/assets/a827cc3c-df04-4413-9923-c1308ef8aa15" alt="1" width="250"/>
+  <img src="https://github.com/user-attachments/assets/7cce9f8f-9bce-482e-8c30-ac270e711b55" alt="2" width="250"/>
+  <img src="https://github.com/user-attachments/assets/d09d8610-8fa0-4e30-808d-3ae0fc4b3274" alt="3" width="250"/>
+  <img src="https://github.com/user-attachments/assets/f8404095-be6c-4b6c-a5e0-bcd0cfa032f6" alt="4" width="250"/>
+  <img src="https://github.com/user-attachments/assets/a0b3d635-e606-42ce-9c81-78c8a068735d" alt="5" width="250"/>
+  <img src="https://github.com/user-attachments/assets/26736dc9-cb49-4eee-a94d-7c76d610ab51" alt="6" width="250"/>
+  <img src="https://github.com/user-attachments/assets/336d5887-d23f-41de-b354-d6e4c8f900ae" alt="7" width="250"/>
 </p>
