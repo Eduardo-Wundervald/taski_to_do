@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:provider/provider.dart';
 import 'package:taski_to_do/src/data/model/task.dart';
 import 'package:taski_to_do/src/presentation/viewmodel/todo_task_view_model.dart';
 
