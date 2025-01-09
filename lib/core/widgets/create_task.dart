@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../src/presentation/viewmodel/create_task_view_model.dart';
+import '../../src/presentation/viewmodel/todo_task_view_model.dart';
 
 class CreateTask extends StatelessWidget {
   CreateTask({super.key});
@@ -90,8 +91,12 @@ class CreateTask extends StatelessWidget {
                       final createTaskViewModel =
                           Provider.of<CreateTaskViewModel>(context,
                               listen: false);
+                      final todoTaskViewModel = Provider.of<TodoTaskViewModel>(
+                          context,
+                          listen: false);
+
                       createTaskViewModel.createTask(titleController.text,
-                          descriptionController.text, context);
+                          descriptionController.text, todoTaskViewModel);
                       Navigator.pop(context);
                     },
                     child: const Text(

@@ -10,7 +10,8 @@ class CreateTaskViewModel extends ChangeNotifier {
   CreateTaskViewModel({required this.taskBox});
 
   // add task
-  void createTask(String title, String description, BuildContext context) {
+  void createTask(String title, String description,
+      [TodoTaskViewModel? todoTaskViewModel]) {
     if (title.isEmpty) {
       return;
     }
@@ -23,7 +24,7 @@ class CreateTaskViewModel extends ChangeNotifier {
 
     taskBox.add(task);
 
-    Provider.of<TodoTaskViewModel>(context, listen: false).notifyTasksUpdated();
+    todoTaskViewModel?.notifyTasksUpdated();
 
     notifyListeners();
   }
