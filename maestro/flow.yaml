@@ -1,0 +1,110 @@
+appId: com.example.taski_to_do
+---
+- launchApp:
+    clearState: true
+
+- extendedWaitUntil:
+    visible:  "Welcome, John."
+    timeout:  10000000
+
+# Create a new task
+- tapOn:
+    text: "Create task"
+- extendedWaitUntil:
+    visible: "Create"
+    timeout: 10000000
+- tapOn:
+    text: "What’s in your mind?"
+- tapOn:
+    text: "What’s in your mind?"
+- inputText: "Create a new maestro test"
+- tapOn:
+    text: "Add a note..."
+- inputText: "This is a note for test"
+- tapOn:
+    text: "Create"
+
+# Create with the down navbar
+- tapOn:
+    text: "Create"
+- extendedWaitUntil:
+    visible: "Create"
+    timeout: 10000000
+- tapOn:
+    text: "What’s in your mind?"
+- tapOn:
+    text: "What’s in your mind?"
+- inputText: "Second test"
+- tapOn:
+    text: "Add a note..."
+- inputText: "This is a note for second test"
+- tapOn:
+    text: "Create"
+
+# Search for crated tasks
+- tapOn:
+    text: "Search"
+- extendedWaitUntil:
+    visible: "No result found."
+    timeout: 10000000
+- tapOn:
+    point: "50%, 15%"
+- inputText: "test"
+- hideKeyboard
+- extendedWaitUntil:
+    visible: "Create a new maestro test"
+    timeout: 10000000
+    visible: "Second test"
+    timeout: 10000000
+
+# Conclude the tasks
+- tapOn:
+    text: "Todo"
+- extendedWaitUntil:
+    visible: "Welcome, John."
+    timeout: 10000000
+- tapOn:
+    text: "Create a new maestro test"
+- tapOn:
+    text: "Second test"
+- extendedWaitUntil:
+    visible: "You have no task listed."
+    timeout: 10000000
+- tapOn:
+    text: "Done"
+- assertVisible:
+    text: "Create a new maestro test"
+    text: "Second test"
+
+# Open all the tasks
+- tapOn:
+    text: "Create a new maestro test"
+- tapOn:
+    text: "Second test"
+- tapOn:
+    text: "Todo"
+- extendedWaitUntil:
+    visible: "Welcome, John."
+    timeout: 10000000
+- tapOn:
+    text: "Create a new maestro test"
+- tapOn:
+    text: "Second test"
+- extendedWaitUntil:
+    visible: "You have no task listed."
+    timeout: 10000000
+- tapOn:
+    text: "Done"
+
+# Delete the tasks
+- tapOn:
+    text: "Delete all"
+- extendedWaitUntil:
+    visible: "No tasks completed yet."
+    timeout: 10000000
+
+# Close App
+- stopApp
+- extendedWaitUntil:
+    visible: "loqquei_novo"
+    timeout: 10000000

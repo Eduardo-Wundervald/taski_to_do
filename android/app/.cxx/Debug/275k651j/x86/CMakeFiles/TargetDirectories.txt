@@ -1,0 +1,2 @@
+C:/Users/eduardo.wundervald/Documents/GitHub/taski_to_do/android/app/.cxx/Debug/275k651j/x86/CMakeFiles/edit_cache.dir
+C:/Users/eduardo.wundervald/Documents/GitHub/taski_to_do/android/app/.cxx/Debug/275k651j/x86/CMakeFiles/rebuild_cache.dir
